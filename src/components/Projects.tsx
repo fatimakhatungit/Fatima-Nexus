@@ -65,7 +65,7 @@ const projects = [
 
 export default function Projects() {  
   return (
-    <section className="relative py-28 bg-white dark:bg-[#080d1a] relative overflow-hidden overflow-hidden" id='project-sec'>
+    <section className="relative pb-28 bg-white dark:bg-[#080d1a] relative overflow-hidden overflow-hidden" id='project-sec'>
 
       {/* background glow */}
       

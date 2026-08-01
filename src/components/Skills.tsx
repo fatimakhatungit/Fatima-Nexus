@@ -212,7 +212,7 @@ export default function Skills() {
   return (
     <section
       id="skills-sec"
-      className="bg-white dark:bg-[#080d1a] relative overflow-hidden"
+      className="bg-white dark:bg-[#080d1a] relative overflow-hidden py-24"
     >
       {/* Decorative Blob */}
       <div className="absolute top-10 right-10 w-72 h-72 rounded-full bg-violet-400/10 dark:bg-violet-600/5 blur-3xl pointer-events-none" />

@@ -34,11 +34,11 @@ export default function ExperienceSection() {
   return (
     <section
       id="experience-sec"
-      className="bg-white py-24 transition-colors duration-300 dark:bg-slate-950"
+      className="bg-white transition-colors duration-300 dark:bg-slate-950 pt-24"
     >
-      <div className="container mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6">
         {/* Section Header */}
-        <div className="mb-16 text-center">
+        <div className="text-center">
           <span className="inline-block rounded-full border border-violet-300 bg-violet-100 px-4 py-1 text-sm font-medium text-violet-700 dark:border-violet-500/30 dark:bg-violet-500/10 dark:text-violet-400">
             Experience
           </span>
@@ -53,7 +53,7 @@ export default function ExperienceSection() {
           </p>
         </div>
 
-        <div className="grid items-center gap-16 lg:grid-cols-2">
+        <div className="grid items-center gap-4 lg:grid-cols-2 py-24"> 
           {/* Experience Cards */}
           <div className="space-y-8">
             {experiences.map((item, index) => (

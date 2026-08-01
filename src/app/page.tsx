@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 import ExperienceSection from "@/components/experiences";
 import TestimonialsSection from "@/components/testimonial";
 import EducationSection from "@/components/education";
+import BackToTop from "@/components/BackToTop";
 
 export default function Home() {
   return (
@@ -29,6 +30,7 @@ export default function Home() {
 
       {/* Footer */} 
       <Footer />
+      <BackToTop /> 
     </div>
   );
 }
