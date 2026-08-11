@@ -116,7 +116,7 @@ export default function Hero() {
               transition={{ duration: 0.5, delay: 0.3 }}
               className="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-xl mb-8 leading-relaxed"
             >
-              I build modern, scalable, and user-friendly web applications using clean, maintainable code and a strong focus on performance, usability, and great user experience.
+              Building modern, scalable, and user-friendly web applications with clean code, great performance, and seamless user experiences.
             </motion.p>
 
             {/* Action Buttons */}
