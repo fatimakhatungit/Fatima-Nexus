@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import React from 'react';
-import { motion } from 'framer-motion';
+import React from "react";
+import { motion } from "framer-motion";
 import {
   SiHtml5,
-  SiCss, // Changed from SiCss3 to SiCss
+  SiCss,
   SiTailwindcss,
   SiJavascript,
   SiReact,
@@ -34,7 +34,7 @@ const frontendSkills = [
   {
     name: "CSS3",
     subtitle: "Modern Layouts",
-    logo: SiCss, // Updated reference here
+    logo: SiCss,
     color: "text-blue-600",
   },
   {
@@ -158,7 +158,7 @@ const toolsSkills = [
 interface SkillItem {
   name: string;
   subtitle: string;
-  logo: React.ComponentType<{ className?: string }>;
+  logo?: React.ComponentType<{ className?: string }>;
   color: string;
 }
 
@@ -168,36 +168,88 @@ interface SkillCategoryProps {
   skills: SkillItem[];
 }
 
-function SkillCategory({ title, description, skills }: SkillCategoryProps) {
+function SkillCategory({
+  title,
+  description,
+  skills,
+}: SkillCategoryProps) {
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-      <div className="lg:col-span-4 lg:sticky lg:top-24">
-        <h3 className="font-display text-2xl font-black text-slate-900 dark:text-white mb-3">
+    <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-12 lg:gap-10">
+      {/* Category Info */}
+      <div className="lg:sticky lg:top-24 lg:col-span-4">
+        <h3 className="mb-3 text-2xl font-black text-slate-900 sm:text-3xl dark:text-white">
           {title}
         </h3>
-        <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed max-w-sm">
+
+        <p className="max-w-sm text-sm leading-6 text-slate-600 sm:text-base dark:text-slate-400">
           {description}
         </p>
       </div>
-      <div className="lg:col-span-8 grid grid-cols-2 sm:grid-cols-3 gap-4">
+
+      {/* Skills Grid */}
+      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 lg:col-span-8 lg:grid-cols-3">
         {skills.map((skill, idx) => (
           <motion.div
             key={skill.name}
-            initial={{ opacity: 0, scale: 0.95, y: 20 }}
-            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+            initial={{
+              opacity: 0,
+              scale: 0.95,
+              y: 20,
+            }}
+            whileInView={{
+              opacity: 1,
+              scale: 1,
+              y: 0,
+            }}
             viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: idx * 0.05 }}
-            whileHover={{ y: -3, scale: 1.02 }}
-            className="p-5 rounded-2xl border border-slate-200 dark:border-slate-800/80 bg-slate-50 dark:bg-slate-900/30 flex items-center space-x-4 shadow-sm hover:shadow transition-all duration-300"
+            transition={{
+              duration: 0.4,
+              delay: idx * 0.05,
+            }}
+            whileHover={{
+              y: -4,
+              scale: 1.02,
+            }}
+            className="
+              flex
+              items-center
+              gap-4
+              rounded-2xl
+              border
+              border-slate-200
+              bg-slate-50
+              p-4
+              shadow-sm
+              transition-all
+              duration-300
+              hover:shadow-md
+              sm:p-5
+              dark:border-slate-800/80
+              dark:bg-slate-900/30
+            "
           >
-            <div className="flex-shrink-0 transition-transform duration-300 hover:scale-110">
-              <skill.logo className={`w-10 h-10 ${skill.color}`} />
+            {/* Icon */}
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center sm:h-11 sm:w-11">
+              {skill.logo ? (
+                <skill.logo
+                  className={`h-9 w-9 transition-transform duration-300 hover:scale-110 sm:h-10 sm:w-10 ${skill.color}`}
+                />
+              ) : (
+                <div
+                  className={`flex h-9 w-9 items-center justify-center rounded-lg bg-blue-500/10 text-xs font-black ${skill.color} sm:h-10 sm:w-10`}
+                >
+                  VS
+                </div>
+              )}
             </div>
-            <div>
-              <h4 className="text-sm font-bold text-slate-900 dark:text-white">
+
+            {/* Text */}
+            <div className="min-w-0">
+              <h4 className="truncate text-sm font-bold text-slate-900 sm:text-base dark:text-white">
                 {skill.name}
               </h4>
-              <p className="text-[10px] sm:text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+
+              <p className="mt-0.5 text-[10px] leading-4 text-slate-500 sm:text-xs dark:text-slate-400">
                 {skill.subtitle}
               </p>
             </div>
@@ -212,46 +264,121 @@ export default function Skills() {
   return (
     <section
       id="skills-sec"
-      className="bg-white dark:bg-[#080d1a] relative overflow-hidden py-24"
+      className="
+        relative
+        overflow-hidden
+        bg-white
+        py-16
+        sm:py-20
+        lg:py-24
+        dark:bg-[#080d1a]
+      "
     >
       {/* Decorative Blob */}
-      <div className="absolute top-10 right-10 w-72 h-72 rounded-full bg-violet-400/10 dark:bg-violet-600/5 blur-3xl pointer-events-none" />
+      <div
+        className="
+          pointer-events-none
+          absolute
+          right-0
+          top-10
+          h-56
+          w-56
+          rounded-full
+          bg-violet-400/10
+          blur-3xl
+          sm:h-72
+          sm:w-72
+          dark:bg-violet-600/5
+        "
+      />
 
-      <div className="max-w-7xl mx-auto px-6 md:px-8 relative z-10">
-        
-        {/* Section Title */}
-        <div className="text-center mb-20">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
+        {/* ================= SECTION HEADER ================= */}
+        <div className="mx-auto mb-12 max-w-2xl text-center sm:mb-16 lg:mb-20">
           <motion.span
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{
+              opacity: 0,
+              y: 15,
+            }}
+            whileInView={{
+              opacity: 1,
+              y: 0,
+            }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }} 
-            className="text-xs font-bold uppercase tracking-widest text-violet-600 dark:text-violet-400 mb-3 block"
+            transition={{ duration: 0.5 }}
+            className="
+              mb-3
+              block
+              text-xs
+              font-bold
+              uppercase
+              tracking-[3px]
+              text-violet-600
+              dark:text-violet-400
+            "
           >
             My Expertise
           </motion.span>
+
           <motion.h2
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{
+              opacity: 0,
+              y: 15,
+            }}
+            whileInView={{
+              opacity: 1,
+              y: 0,
+            }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="font-display text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight"
+            transition={{
+              duration: 0.5,
+              delay: 0.1,
+            }}
+            className="
+              text-3xl
+              font-extrabold
+              tracking-tight
+              text-slate-900
+              sm:text-4xl
+              dark:text-white
+            "
           >
             Skills &amp; Technologies
           </motion.h2>
+
           <motion.p
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{
+              opacity: 0,
+              y: 15,
+            }}
+            whileInView={{
+              opacity: 1,
+              y: 0,
+            }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-slate-600 dark:text-slate-400 mt-4 max-w-xl mx-auto text-sm sm:text-base"
+            transition={{
+              duration: 0.5,
+              delay: 0.2,
+            }}
+            className="
+              mx-auto
+              mt-4
+              max-w-xl
+              text-sm
+              leading-6
+              text-slate-600
+              sm:text-base
+              dark:text-slate-400
+            "
           >
-            Technologies I&apos;ve been working with recently and have extensive experience in building scalable applications.
+            Technologies I&apos;ve been working with recently and have
+            extensive experience in building scalable applications.
           </motion.p>
         </div>
 
-        {/* Categories Stack */}
-        <div className="space-y-16">
+        {/* ================= CATEGORIES ================= */}
+        <div className="space-y-12 sm:space-y-16">
+          {/* Frontend */}
           <SkillCategory
             title="Frontend Development"
             description="Creating interactive user interfaces using modern coding standards and responsive frameworks."
@@ -260,6 +387,7 @@ export default function Skills() {
 
           <div className="h-px bg-slate-200 dark:bg-slate-800/60" />
 
+          {/* Backend */}
           <SkillCategory
             title="Backend Development"
             description="Orchestrating server logic, business layers, and system processes."
@@ -268,6 +396,7 @@ export default function Skills() {
 
           <div className="h-px bg-slate-200 dark:bg-slate-800/60" />
 
+          {/* Database */}
           <SkillCategory
             title="Database Systems"
             description="Managing relational tables and document-based data models."
@@ -276,9 +405,13 @@ export default function Skills() {
 
           <div className="h-px bg-slate-200 dark:bg-slate-800/60" />
 
-         
+          {/* Tools */}
+          <SkillCategory
+            title="Tools & Deployment"
+            description="Using modern development, version control, design, and deployment tools to build and ship reliable applications."
+            skills={toolsSkills}
+          />
         </div>
-
       </div>
     </section>
   );
