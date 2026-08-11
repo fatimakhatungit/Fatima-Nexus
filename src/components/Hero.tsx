@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { ArrowDown, ArrowRight, Mail } from 'lucide-react';
 
-const roles = ['Frontend Developer', 'Web Developer', 'MERN Stack Developer', 'UI/UX Enthusiast'];
+const roles = ['Full-Stack Developer', 'Next.js Developer','React.js Developer','MERN Stack Developer',  'Web Developer', 'Frontend Developer'];
 
 export default function Hero() {
   const [roleIndex, setRoleIndex] = useState(0);
